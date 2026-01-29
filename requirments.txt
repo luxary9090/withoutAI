@@ -1,2 +1,5 @@
-fastapi[all]
+'fastapi[all]'
+uvicorn
 requests
+fastapi_health
+
