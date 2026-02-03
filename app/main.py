@@ -23,11 +23,20 @@ def json_to_dict_list(json_path):
 
 
 @app.get("/students")
-def get_all_students():
-    return json_to_dict_list(path_to_json)
+def get_all_students(course: Optional[int] = None):
+    students = json_to_dict_list(path_to_json)
+    if course is None:
+        return students
+    else:
+        return_list = []
+        for student in students:
+            if student["course"] == course:
+                return_list.append(student)
+        return return_list
+
 @app.get("/")
 def home_page():
-    return {"message": "Привет, Хабр!"}
+    return {"message": "Привет, мир!"}
 
 
 @app.get("/students/{course}")
