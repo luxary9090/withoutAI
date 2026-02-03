@@ -1,0 +1,4 @@
+'fastapi[all]'
+uvicorn
+requests
+fastapi_health
